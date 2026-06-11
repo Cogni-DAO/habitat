@@ -9,15 +9,27 @@
 
 schema_version: "0.1.4"
 
-node_id: "b927a9dd-6132-4fc9-a51e-e3cee2568e3c"
-scope_id: "b44d4394-3147-5787-acab-51546be6a3da"
+node_id: "dbf1eeb7-85d4-4fd5-a4fe-da85c668bb03"
+scope_id: "87de1991-300a-525c-a313-e76bf003284c"
 scope_key: "default"
 
 intent:
-  name: node-template
+  name: habitat
 
 cogni_dao:
-  chain_id: "8453" # Base mainnet
+  dao_contract: "0x47fb95f0b9959f89b41208a4363838bdb1c824da"
+  plugin_contract: "0xc07c9dd87f15a51fcb6a122f84c36758b07363bb"
+  signal_contract: "0xcb31666c19dfa25e7c28364dbe321dc7a6d792e2"
+  chain_id: "8453"
+
+knowledge:
+  database: "knowledge_habitat"
+  remote:
+    provider: dolthub
+    owner: "cogni-dao"
+    repo: "knowledge-habitat"
+    url: "https://doltremoteapi.dolthub.com/cogni-dao/knowledge-habitat"
+    custody: cogni-owned
 
 # Activity ledger ingestion + approver allowlist.
 # `approvers` gates the `(admin)/` route group and write routes under
@@ -30,7 +42,7 @@ activity_ledger:
   activity_sources:
     github:
       attribution_pipeline: cogni-v0.0
-      source_refs: ["Cogni-DAO/standalone-node"]
+      source_refs: ["Cogni-DAO/habitat"]
 
 payments:
   status: pending_activation
